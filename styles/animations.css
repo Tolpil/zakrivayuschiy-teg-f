@@ -9,3 +9,102 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+
+.page__button {
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.page__button:focus {
+    box-shadow: 2px 2px 0 #000;
+    outline: none;
+}
+
+.page__button::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    min-height: 100%;
+    background-color: #000;
+    transition: translate 0.5s ease-in-out;
+    translate: -100% 0;
+}
+.page__button:hover,
+.like-icon:hover {
+    cursor: pointer;
+}
+.page__button:hover::before {
+    translate: 0 0;
+}
+
+.card__icon-button:focus-visible {
+    border: solid #000 2px;
+}
+.contour {
+    transition: fill 0.1s linear 0s;
+}
+.core {
+    transition: fill 0.3s linear 0.03s;
+}
+.main-body {
+    transition: fill 0.3s linear 0s;
+}
+.card__icon-button:focus {
+    outline: none;
+}
+.like-icon:hover .main-body {
+    --main-body-heart-color: var(--hover-heart-color);
+    transition: fill 0.3s linear 0.05s;
+}
+.like-icon:hover .core {
+    --core-heart-color: var(--hover-heart-color);
+    transition: fill 0.3s linear 0s;
+}
+.like-icon:active .main-body {
+    --main-body-heart-color: var(--animation-fill-color);
+    transition: fill 0.3s linear 0.05s;
+}
+.like-icon:active .core {
+    --core-heart-color: var(--animation-fill-color);
+    transition: fill 0.3s linear 0s;
+}
+.like-icon.is-liked .core {
+    --core-heart-color: var(--animation-fill-color);
+    transition: fill 0.3s linear 0s;
+}
+.like-icon.is-liked .main-body {
+    --main-body-heart-color: var(--animation-fill-color);
+    transition: fill 0.3s linear 0.05s;
+}
+.like-icon.is-liked .contour {
+    --contour-color: var(--animation-fill-color);
+    transition: fill 0.3s linear 0.06s;
+}
+@keyframes size-up {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.25);
+    }
+}
+.like-icon .heart {
+    transform-origin: center;
+}
+.like-icon.is-liked .heart {
+    animation: size-up 0.3s ease-in 0.1s 1;
+}
+.like-icon.is-liked .sparks {
+    animation: shine 0.3s ease-in 0.3s 1;
+}
+@keyframes shine {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

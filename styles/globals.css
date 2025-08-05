@@ -42,6 +42,11 @@ ol {
   list-style: none;
 }
 
+button {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
 .visually-hidden {
   position: absolute;
   inline-size: 1px;
