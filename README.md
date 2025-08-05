@@ -1,1 +1,1 @@
-https://github.com/Tolpil/zakrivayuschiy-teg-f#
+https://github.com/Tolpil/zakrivayuschiy-teg-f
