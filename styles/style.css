@@ -66,10 +66,13 @@
     background-color: var(--card-back-color);
     inline-size: var(--block-inline-size);
 }
+
 .card__img__container {
     position: relative;
-    border-top: 2px solid var(--border-color);
-    border-bottom: 2px solid var(--border-color);
+    border-block-start: 2px solid var(--border-color);
+    border-block-end: 2px solid var(--border-color);
+    max-block-size: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
+    aspect-ratio: 1/1;
 }
 
 .card__img__container::before {
@@ -83,11 +86,13 @@
     background-image: url(../images/Auto.png);
     background-size: cover;
 }
+
 .card__img {
     display: block;
     width: calc(var(--block-inline-size) - 3px);
     object-fit: cover;
     object-position: center;
+    aspect-ratio: 1/1;
 }
 
 .watermark {
@@ -115,21 +120,20 @@
 }
 
 .card__title {
-    padding-inline: 10px;
-    padding-block: 5px;
+    padding: 4px 10px;
     color: var(--page-text-color);
     font-family: var(--main-font), sans-serif, Asap;
-
     font-size: 18px;
     font-style: normal;
     line-height: 22px;
     font-variation-settings: "slnt" 0, "wght" var(--title-weight);
 }
+
 .card__description {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    padding: 30px 25px;
+    row-gap: 26px;
+    padding: 29px 26px 23px;
 }
 
 .card__text {
@@ -145,6 +149,7 @@
     justify-content: flex-end;
     gap: 7px;
 }
+
 .card__icon-button {
     display: flex;
     justify-content: center;
@@ -154,20 +159,24 @@
     background: var(--card-back-color);
     transition: border 0.3s ease;
 }
+
 .page__button {
     border: 2px solid var(--border-color);
     background: var(--card-back-color);
 }
+
 .card__like-button {
     width: 130px;
     height: 38px;
     padding: 9px 10px;
 }
+
 .like-icon {
     height: 35px;
     margin: auto;
     aspect-ratio: 1/1;
 }
+
 .button__text {
     position: relative;
     color: var(--button-text-color);
@@ -202,17 +211,21 @@
     display: grid;
     grid-template-columns: min-content 1fr;
     grid-template-rows: 1fr min-content;
-    gap: 20px 30px;
+    row-gap: 30px;
+    column-gap: 20px;
     border: 2px solid var(--border-color);
     padding: 28px;
     inline-size: clamp(21.313rem, 21.048rem + 1.13vw, 22.063rem);
 }
+
 .no-discket[open]::backdrop {
     background-color: var(--backdrop-color);
 }
+
 .popover__form {
     grid-column: span 2;
 }
+
 .popover__button {
     width: 100%;
     height: 38px;
@@ -222,11 +235,12 @@
 .discket {
     z-index: 1;
     align-self: center;
-    fill: var(--button-text-color);
-    mix-blend-mode: difference;
     width: 22px;
     height: 21px;
+    fill: var(--button-text-color);
+    mix-blend-mode: difference;
 }
+
 .no-discket[open] .discket {
     width: 40px;
     height: 39px;
@@ -235,49 +249,63 @@
 .saturate-bright {
     filter: saturate(300%) brightness(150%);
 }
+
 .grayscale {
     filter: grayscale(100%);
 }
+
 .contrast {
     filter: contrast(150%) brightness(40%);
 }
+
 .invert {
     filter: invert(10%);
 }
+
 .blur-contrast {
     filter: blur(5px) contrast(150%);
 }
+
 .sepia {
     filter: sepia(1.7);
 }
+
 .hue-rotate {
     filter: hue-rotate(0.7turn);
 }
+
 .sparks {
     opacity: 0;
 }
+
 @media (prefers-reduced-motion: reduce) {
     .card__img {
         display: none;
     }
+
     .card__img__container::before {
         opacity: 1;
     }
+
     .card__img__container {
         aspect-ratio: 1/1;
     }
 }
-@media (max-width: 375px) {
+
+@media (max-width: 376px) {
     .header {
         margin-bottom: 96px;
     }
+
     .save-button {
         flex-direction: column;
     }
+
     .discket {
         width: 29px;
         height: 28px;
     }
+
     .no-discket[open] {
         padding: 30px 36px;
     }
